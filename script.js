@@ -34,6 +34,9 @@ searchButton.addEventListener('click', ()=>{
 
 
         input.value=''
+    }).catch(err=>{
+        alert('pokemon not found!')
+        console.log(err)
     })
 
 })
