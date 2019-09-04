@@ -1,6 +1,25 @@
 console.log('script works!')
 
-let searchButton=document.getElementsByTagName('button')[0]
+
+let requestUrl='https://randomuser.me/api/'
+
+let searchButton=document.getElementsByTagName('button')[1]
+
+let generateUserButton=document.getElementsByTagName('button')[0]
+
+
+generateUserButton.addEventListener('click', ()=>{
+    fetch(requestUrl).then(data=>data.json()).then(res=>{
+        let newUser=res.results[0]
+        document.getElementById('userPhoto').src=newUser.picture.thumbnail
+        document.getElementById('userName').innerText=newUser.name.first+ ' '+ newUser.name.last
+
+        
+        console.log(res.results, 'results')
+    })
+})
+
+
 
 //fetch pokemon name
 console.log(document.getElementsByClassName('pokemon')[0].attributes[0])
